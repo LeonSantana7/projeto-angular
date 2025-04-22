@@ -1,0 +1,19 @@
+<p>{{formulario.value.email}}</p>
+<p>{{formulario.value.senha}}</p>
+
+<form [formGroup]="formulario" class="forms">
+    <div class="input-group mb-3">
+      <span class="input-group-text">
+        <i class="bi bi-person"></i>
+      </span>
+      <input type="email" formControlName="email" class="form-control" placeholder="Insira seu e-mail" required>
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text">
+        <i class="bi bi-lock"></i>
+      </span>
+      <input type="password" formControlName="senha" class="form-control" placeholder="Insira sua senha" required>
+    </div>
+    <button class="button">Confirmar</button>
+  </form>
+  
