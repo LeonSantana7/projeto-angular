@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    height: 100vh;
+    padding: 2rem;
+}
+
+.login-image-section img{
+    width: 500px;
+}
+.login-forms{
+    flex-direction: column;
+    text-align: center
+
+}
+
+.login-forms-image img{
+    width: 120px;
+    margin-bottom: 30%;
+}
+
+.login-forms-welcome{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 42%;
+}
+
