@@ -4,33 +4,110 @@
     box-sizing: border-box;
 }
 
-main{
+main {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 3rem;
-    height: 100vh;
+    gap: 2rem;
+    width: 100%;
     padding: 2rem;
+    min-height: 100vh;
+    overflow: hidden;
+    flex-direction: row;
 }
 
-.login-image-section img{
-    width: 500px;
+.login-image-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
 }
-.login-forms{
+
+.login-image-section img {
+    max-width: 100%;
+    max-height: calc(100vh - 4rem);
+    object-fit: contain;
+}
+
+.login-forms {
+    flex: 1;
+    display: flex;
     flex-direction: column;
-    text-align: center
-
+    text-align: center;
+    overflow: auto;
+    max-height: calc(100vh - 4rem);
+    min-width: 300px;
 }
 
-.login-forms-image img{
+.login-forms-image img {
     width: 120px;
-    margin-bottom: 30%;
+    margin-bottom: 5%;
 }
 
-.login-forms-welcome{
+.login-forms-welcome {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 42%;
+    margin-bottom: auto;
 }
 
+
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .login-image-section {
+        padding: 1rem;
+        min-width: auto;
+    }
+
+    .login-image-section img {
+        max-height: 200px;
+
+    }
+
+    .login-forms {
+        max-height: none;
+        min-width: auto;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .login-forms-image img {
+        width: 100px;
+        margin-bottom: 3%;
+    }
+
+    .login-forms {
+        padding: 1rem;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 375px) {
+    .login-image-section {
+        padding: 0.5rem;
+    }
+
+    .login-image-section img {
+        max-height: 150px;
+    }
+
+    .login-forms {
+        padding: 0.8rem;
+    }
+
+    .login-forms-image img {
+        width: 80px;
+        margin-bottom: 2%;
+    }
+}

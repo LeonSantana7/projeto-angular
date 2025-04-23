@@ -1,19 +1,44 @@
-<p>{{formulario.value.email}}</p>
-<p>{{formulario.value.senha}}</p>
+<form [formGroup]="formulario" class="forms" (ngSubmit)="onSubmit()">
 
-<form [formGroup]="formulario" class="forms">
-    <div class="input-group mb-3">
-      <span class="input-group-text">
-        <i class="bi bi-person"></i>
-      </span>
-      <input type="email" formControlName="email" class="form-control" placeholder="Insira seu e-mail" required>
+  <div class="input-group mb-1" [class.invalid]="email?.invalid && email?.touched">
+    <span class="input-group-text">
+      <i class="bi bi-person"></i>
+    </span>
+    <input type="email" formControlName="email" class="form-control" placeholder="Insira seu e-mail" required>
+  </div>
+  <small class="text-danger" *ngIf="email?.touched && email?.errors?.['required']">
+    O e-mail é obrigatório.
+  </small>
+  <small class="text-danger" *ngIf="email?.touched && email?.errors?.['email']">
+    Informe um e-mail válido.
+  </small>
+
+
+  <div class="input-group mb-1" [class.invalid]="senha?.invalid && senha?.touched">
+    <span class="input-group-text">
+      <i class="bi bi-lock"></i>
+    </span>
+    <input type="password" formControlName="senha" class="form-control" placeholder="Insira sua senha" required>
+  </div>
+  <small class="text-danger" *ngIf="senha?.touched && senha?.errors?.['required']">
+    A senha é obrigatória.
+  </small>
+  <small class="text-danger" *ngIf="senha?.touched && senha?.errors?.['minlength']">
+    A senha deve ter no mínimo 6 caracteres.
+  </small>
+
+
+  <div class="toggle-switch-container mt-2">
+    <div class="toggle-switch">
+      <input type="checkbox" id="logarAutomaticamente" formControlName="lembrarLogin" class="toggle-switch-input">
+      <label for="logarAutomaticamente" class="toggle-switch-label">
+        <span class="toggle-switch-inner"></span>
+        <span class="toggle-switch-switch"></span>
+      </label>
     </div>
-    <div class="input-group mb-3">
-      <span class="input-group-text">
-        <i class="bi bi-lock"></i>
-      </span>
-      <input type="password" formControlName="senha" class="form-control" placeholder="Insira sua senha" required>
-    </div>
-    <button class="button">Confirmar</button>
-  </form>
-  
+    <label for="logarAutomaticamente" class="toggle-label">Logar automaticamente</label>
+  </div>
+
+
+  <button type="submit" [disabled]="formulario.invalid">Entrar</button>
+</form>
